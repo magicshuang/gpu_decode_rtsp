@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.13)
 project(rtsp_gpu_decode)
 
 set(CMAKE_CXX_STANDARD 14)
-add_library(rtsp_gpu_decode SHARED rtsplib.cpp rtsplib.h)
+add_library(rtsp_gpu_decode SHARED rtsp_read.cpp rtsp_read.h)
 set(OPENCV /usr/include/opencv4)
 find_package(OpenCV 4 REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
