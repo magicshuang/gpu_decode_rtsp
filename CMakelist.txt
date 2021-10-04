@@ -1,0 +1,25 @@
+cmake_minimum_required(VERSION 3.13)
+project(rtsp_gpu_decode)
+
+set(CMAKE_CXX_STANDARD 14)
+add_library(rtsp_gpu_decode SHARED rtsplib.cpp rtsplib.h)
+set(OPENCV /usr/include/opencv4)
+find_package(OpenCV 4 REQUIRED)
+include_directories(${OpenCV_INCLUDE_DIRS})
+
+set(OPENCV_LIB opencv_calib3d opencv_core opencv_features2d opencv_flann opencv_highgui
+        opencv_imgproc opencv_ml opencv_objdetect opencv_photo opencv_stitching
+        opencv_video rt pthread m dl)
+# include_direcctory 和 link_directorys 必须在定义相关的target（add_executable or add_library)之前
+# target不会到在他后面定义的directory中寻找.h文件和.lib文件，因此错序可能会报错
+# 指定搜索.h file的目录
+include_directories(${OPENCV})
+include_directories(${OPENCV}/opencv2/include ${OPENCV}/opencv2/include/opencv)     # include directory for all targets
+# target_include_directories(target dir1 dir2 ...)                  # include directory for specified target
+
+# 指定搜索.lib file的目录
+#link_directories(${OPENCV}/opencv2/lib)   # libraray search path
+#
+target_link_libraries(rtsp_gpu_decode ${OPENCV_LIB})
+# link_libarrays(lib1, lib2...)                         # link library to all targets
+
