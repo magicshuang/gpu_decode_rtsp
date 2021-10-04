@@ -1,7 +1,10 @@
 # GPU 硬解码动态链接库
 本程序使用gsteamer解码rtsp流
-返回二进制片，或者自己改合适的输出
+
+返回二进制图片，或者自己改合适的输出
+
 rtsp_gpu_decode.aarch64-linux-gnu.so文件可以直接使用,没法用的自己编译
+
 参考demo程序（python）调用，也可以是其他语言
 
 ## 方法介绍
