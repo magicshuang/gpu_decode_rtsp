@@ -4,6 +4,7 @@
 参考demo程序（python）调用，也可以是其他语言
 
 ## 方法介绍
+'''
 // 创建对象
 myCap* MyCreate()
 返回值 对象指针
@@ -17,7 +18,7 @@ void init(myCap* t,char * gst)
 //对象的方法:逐帧捕获
 void my_get(myCap* t,byte* pp,unsigned long* lenpp)
 参数：t：对象地址 ;pp: 图片指针 ；lenpp:图片长度
-
+'''
 ## 开始使用
 ##### step1 修改CMakelist.txt文件
 查找opencv库，并相应的修改opencv库路径
